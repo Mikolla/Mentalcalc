@@ -1,5 +1,8 @@
 package model;
 
+import initialise.Datainitialiser;
+import operations.Multiplication;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -97,16 +100,9 @@ public class Excercise implements Comparable<Excercise>{
 
 
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        Excercise[] excercises = new Excercise[9];
-        int i = 0;
-        for (Excercise ex : excercises) {
-              ex = new Excercise(i + 1, 9 - i);
-              ex.setTime(Math.round(5*i*Math.random()));
-              ex.setDone(Math.random() > 0.5 ? true : false);
-              excercises[i] = ex;
-              i++;
-        }
+
+        Datainitialiser datainitialiser = new Datainitialiser();
+        Excercise[] excercises = datainitialiser.generator(9, '*');
 
         Arrays.sort(excercises);
 
@@ -114,26 +110,13 @@ public class Excercise implements Comparable<Excercise>{
             System.out.println(ex);
         }
 
-        for (Excercise ex : excercises) {
-           int one = ex.getFirstNumb();
-           int two = ex.getSecondNumb();
-           int result = one * two;
-           int desided = 0;
-           do {
-               System.out.print(one + " " + ex.getAction() + " " + two + " = " +result + " ");
-               try {
-                   desided = Integer.parseInt(reader.readLine());
-                   if (desided == result) {
-                       System.out.println("Верно!");
-                   } else {
-                       System.out.println("Неверно, еще раз!");
-                   }
-               } catch (NumberFormatException e) {
-                   System.out.println("Пока не решишь!");
-               }
+       Multiplication multiplication = new Multiplication(excercises);
+     //  multiplication.operate();
 
-           } while (desided != result);
-        }
+        multiplication.answerGenerator(30);
+
+
+
 
     }
 
