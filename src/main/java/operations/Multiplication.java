@@ -37,7 +37,7 @@ public class Multiplication {
         for (int i = 0; i < answerList.size(); i++) {
             System.out.println(answerList.get(i) + " " + i);
         }
-        answer = answerList.toArray();
+     //   answer = answerList.toArray();
         return answers;
     }
     public void operate() {
