@@ -35,6 +35,6 @@ public class Fibonachi1 {
     public static void main(String[] args) {
         //iterativeFibonachi(8);
         //System.out.println(fiboneiro(8));
-        Stream.iterate(new int[]{0, 1}, n -> new int[] {n[1], n[0] + n[1]}).limit(9).map(x -> x[0]).forEach(y -> System.out.println(y));
+         Stream.iterate(new int[]{0, 1}, n -> new int[] {n[1], n[0] + n[1]}).limit(9).map(x -> x[0]).forEach(y -> System.out.println(y));
     }
 }
