@@ -2,7 +2,7 @@ package pattern.factoryMethod;
 
 public class FactoryDemo {
     public static void main(String[] args) {
-        DeveloperFactory developerFactory = createDevFactoryBySpec("fg");
+        DeveloperFactory developerFactory = createDevFactoryBySpec("cpp");
         Developer dev = developerFactory.createDeveloper();
         dev.writeCode();
 
